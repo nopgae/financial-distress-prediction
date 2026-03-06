@@ -1,0 +1,8 @@
+*.pdf
+*.docx
+*.zip
+.DS_Store
+__pycache__/
+.ipynb_checkpoints/
+proj2_jonginChoi.zip
+DS310_Project2_Fall2024.pdf
