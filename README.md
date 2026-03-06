@@ -29,12 +29,14 @@ Financial ratios extracted from income statements and balance sheets:
 
 ```
 .
-├── ds310proj2.ipynb                     # Full pipeline notebook
-├── train_data.csv                       # Training set (financial ratios + labels)
-├── test_data.csv                        # Test set
-├── submission.csv                       # Predicted labels
-├── class_distribution.png              # Target class distribution
-├── correlation_heatmap.png             # Feature correlation matrix
+├── ds310proj2.ipynb     # Full pipeline notebook
+├── train_data.csv       # Training set (financial ratios + labels)
+├── test_data.csv        # Test set
+├── submission.csv       # Predicted labels
+├── images/
+│   ├── class_distribution.png   # Target class distribution
+│   ├── roc_curve.png            # ROC curve (AUC=0.885)
+│   └── feature_importance.png   # XGBoost feature importances
 └── README.md
 ```
 
@@ -57,6 +59,20 @@ Mirrors demand forecasting and anomaly detection problems in supply chain:
 - Handling class-imbalanced data (rare events: disruptions, demand spikes)
 - Feature engineering from structured tabular data
 - Gradient boosting for classification — core technique in production ML pipelines
+
+## Visualizations
+
+### Class Distribution
+![Class Distribution](images/class_distribution.png)
+*Severe imbalance: 72% healthy vs 28% distressed — motivates SMOTE oversampling before model training*
+
+### ROC Curve (5-Fold Cross-Validation)
+![ROC Curve](images/roc_curve.png)
+*XGBoost + SMOTE achieves AUC = 0.885 on 5-fold CV — strong discriminative power between healthy and distressed companies*
+
+### Feature Importance
+![Feature Importance](images/feature_importance.png)
+*Top features are profitability and leverage ratios — aligns with established financial distress theory (Altman Z-score components)*
 
 ---
 
